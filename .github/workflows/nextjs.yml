@@ -21,7 +21,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          # cache: "pnpm"
 
       - name: Install pnpm
         run: npm install -g pnpm@8 # Install pnpm globally
@@ -47,10 +46,13 @@ jobs:
       - name: Build the Next.js site
         run: pnpm next build
 
+      - name: Export the site to static files
+        run: pnpm next export # This command generates the 'out' directory
+
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./out # Ensure this is the correct path for the exported directory
 
   deploy:
     runs-on: ubuntu-latest
