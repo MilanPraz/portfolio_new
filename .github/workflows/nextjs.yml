@@ -1,11 +1,8 @@
 name: Deploy Next.js site to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 permissions:
@@ -22,21 +19,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Check out the code
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Step 2: Set up Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "pnpm"
 
-      - name: Setup pnpm
-        run: |
-          npm install -g pnpm
-          pnpm --version
+      # Step 3: Install pnpm globally
+      - name: Install pnpm
+        run: npm install -g pnpm
 
-      - name: Restore cache
+      # Step 4: Restore pnpm cache
+      - name: Restore pnpm cache
         uses: actions/cache@v4
         with:
           path: |
@@ -46,18 +45,23 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-
 
+      # Step 5: Install dependencies using pnpm
       - name: Install dependencies
         run: pnpm install
+        env:
+          CI: true
 
+      # Step 6: Build with Next.js
       - name: Build with Next.js
         run: pnpm next build
 
+      # Step 7: Upload build artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
-  # Deployment job
+  # Deploy job
   deploy:
     environment:
       name: github-pages
