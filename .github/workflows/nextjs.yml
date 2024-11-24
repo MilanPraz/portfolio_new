@@ -10,31 +10,25 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Check out the code
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Step 2: Set up Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "pnpm"
+          cache: pnpm
 
-      # Step 3: Install pnpm globally
       - name: Install pnpm
         run: npm install -g pnpm
 
-      # Step 4: Restore pnpm cache
+      - name: Verify pnpm installation
+        run: pnpm --version
+
       - name: Restore pnpm cache
         uses: actions/cache@v4
         with:
@@ -45,27 +39,20 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-
 
-      # Step 5: Install dependencies using pnpm
       - name: Install dependencies
         run: pnpm install
         env:
           CI: true
 
-      # Step 6: Build with Next.js
-      - name: Build with Next.js
+      - name: Build Next.js site
         run: pnpm next build
 
-      # Step 7: Upload build artifact
-      - name: Upload artifact
+      - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
-  # Deploy job
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
