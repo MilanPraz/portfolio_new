@@ -14,19 +14,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: pnpm
+          cache: "pnpm"
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8 # Specify the desired pnpm version (optional)
+      - name: Install pnpm
+        run: npm install -g pnpm@8 # Install pnpm globally
 
       - name: Verify pnpm installation
         run: pnpm --version
@@ -41,12 +39,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-
 
-      - name: Install dependencies
+      - name: Install dependencies using pnpm
         run: pnpm install
         env:
           CI: true
 
-      - name: Build Next.js site
+      - name: Build the Next.js site
         run: pnpm next build
 
       - name: Upload build artifact
