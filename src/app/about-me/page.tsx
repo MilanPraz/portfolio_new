@@ -1,14 +1,7 @@
 "use client";
 import React from "react";
-
-import { motion } from "framer-motion";
 import { skills, workExperience } from "@/__data__/about";
-import {
-  BriefcaseBusinessIcon,
-  BriefcaseIcon,
-  MapPin,
-  WorkflowIcon,
-} from "lucide-react";
+import { BriefcaseBusinessIcon, MapPin } from "lucide-react";
 import { Badge } from "@/Components/ui/badge";
 import {
   VerticalTimeline,
@@ -16,7 +9,7 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { useTheme } from "next-themes";
-export default function page() {
+export default function Page() {
   const { theme } = useTheme();
   console.log("THEMEEE", theme);
 
@@ -27,8 +20,8 @@ export default function page() {
         <p className=" text-sm text-muted-foreground mt-10">
           As a developer with full-stack expertise in the <strong> MERN</strong>{" "}
           stack, <strong> TypeScript</strong>, <strong> PostgreSQL</strong> and{" "}
-          <strong> MongoDB</strong>, I've excelled in dynamic environments at
-          Metalogic, and Mindrisers Technology, delivering innovative web
+          <strong> MongoDB</strong>, I&apos;ve excelled in dynamic environments
+          at Metalogic, and Mindrisers Technology, delivering innovative web
           applications.
         </p>
         <p className=" text-sm text-muted-foreground mt-2">

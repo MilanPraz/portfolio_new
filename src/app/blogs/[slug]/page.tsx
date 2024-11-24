@@ -1,6 +1,6 @@
 "use client";
 import { blogPosts } from "@/__data__/blogs";
-import { ChevronsLeftIcon, MoveLeft } from "lucide-react";
+import { ChevronsLeftIcon } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import React from "react";
 
