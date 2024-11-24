@@ -28,35 +28,32 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          # cache: "pnpm"
+          cache: "pnpm"
 
       # Step 3: Install pnpm globally
-      # - name: Install pnpm
-      #   run: npm install -g pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
 
-      - name: Cache configuration
+      # Step 4: Restore pnpm cache
+      - name: Restore pnpm cache
         uses: actions/cache@v4
         with:
           path: |
-            ~/.npm
-            ${{ github.workspace }}/.next/cache
-          # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
-          # If source files changed but packages didn't, rebuild from a prior cache.
+            ~/.pnpm-store
+            node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+            ${{ runner.os }}-pnpm-
 
       # Step 5: Install dependencies using pnpm
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
         env:
           CI: true
 
       # Step 6: Build with Next.js
       - name: Build with Next.js
-        run: |
-          npm install 
-          npm run build
+        run: pnpm next build
 
       # Step 7: Upload build artifact
       - name: Upload artifact
