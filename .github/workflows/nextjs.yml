@@ -27,33 +27,33 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "21"
-          cache: "pnpm"
+          node-version: "20"
+          cache: "npm"
 
-      # Step 3: Install pnpm globally
-      - name: Install pnpm
-        run: npm install -g pnpm
+      # Step 3: Install npm globally
+      - name: Install npm
+        run: npm install -g npm
 
-      # Step 4: Restore pnpm cache
-      - name: Restore pnpm cache
+      # Step 4: Restore npm cache
+      - name: Restore npm cache
         uses: actions/cache@v4
         with:
           path: |
-            ~/.pnpm-store
+            ~/.npm-store
             node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/npm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-
+            ${{ runner.os }}-npm-
 
-      # Step 5: Install dependencies using pnpm
+      # Step 5: Install dependencies using npm
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
         env:
           CI: true
 
       # Step 6: Build with Next.js
       - name: Build with Next.js
-        run: pnpm next build
+        run: npm next build
 
       # Step 7: Upload build artifact
       - name: Upload artifact
