@@ -46,13 +46,10 @@ jobs:
       - name: Build the Next.js site
         run: pnpm next build
 
-      - name: Export the site to static files
-        run: pnpm next export # This command generates the 'out' directory
-
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out # Ensure this is the correct path for the exported directory
+          path: ./out # The static files will be in the 'out' directory by default
 
   deploy:
     runs-on: ubuntu-latest
