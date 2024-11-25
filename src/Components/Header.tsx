@@ -40,15 +40,15 @@ export default function Header() {
           src="/signature.png"
           alt="sign"
           className=" w-20 dark:hidden block"
-          width={400}
-          height={400}
+          width={120}
+          height={120}
         />
         <Image
           src="/white-sign.png"
           alt="sign"
           className=" w-20 hidden dark:block"
-          width={400}
-          height={400}
+          width={120}
+          height={120}
         />
       </Link>
 
