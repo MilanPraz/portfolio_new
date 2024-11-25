@@ -35,18 +35,20 @@ export default function Header() {
 
   return (
     <div className=" flex   justify-between 2xl:container px-4  py-4">
-      <Link href={"/"}>
+      <Link href={"/"} className=" dark:hidden block">
         <Image
           src="/signature.png"
           alt="sign"
-          className=" w-20 dark:hidden block"
+          className=" w-20"
           width={120}
           height={120}
         />
+      </Link>
+      <Link href={"/"} className="hidden dark:block">
         <Image
           src="/white-sign.png"
           alt="sign"
-          className=" w-20 hidden dark:block"
+          className=" w-20 "
           width={120}
           height={120}
         />
