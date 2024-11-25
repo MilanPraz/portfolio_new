@@ -3,6 +3,13 @@ import { blogPosts } from "@/__data__/blogs";
 import { ChevronsLeftIcon } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import React from "react";
+// Add this function to generate static paths
+// Generate static params from local blog data
+export async function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
 export default function Page() {
   const { slug } = useParams();
