@@ -6,6 +6,7 @@ import ThemeSwitcher from "./navbar/ThemeSwitcher";
 import { MessageCircleMore } from "lucide-react";
 import Hamburger from "./navbar/Hamburger";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 const navLinks = [
   {
@@ -31,6 +32,9 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const { theme } = useTheme();
+  console.log("THEMEMEME:", theme);
+
   const [navOpen, setNavOpen] = useState<boolean>(false);
 
   return (
