@@ -5,6 +5,7 @@ import Link from "next/link";
 import ThemeSwitcher from "./navbar/ThemeSwitcher";
 import { MessageCircleMore } from "lucide-react";
 import Hamburger from "./navbar/Hamburger";
+import Image from "next/image";
 
 const navLinks = [
   {
@@ -35,14 +36,14 @@ export default function Header() {
   return (
     <div className=" flex   justify-between 2xl:container px-4  py-4">
       <Link href={"/"}>
-        <img
+        <Image
           src="/signature.png"
           alt="sign"
           className=" w-20 dark:hidden block"
           width={400}
           height={400}
         />
-        <img
+        <Image
           src="/white-sign.png"
           alt="sign"
           className=" w-20 hidden dark:block"
