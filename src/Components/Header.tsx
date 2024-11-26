@@ -75,7 +75,7 @@ export default function Header() {
                 return (
                   <li key={idx}>
                     <Link
-                      className="flex relative  gap-4 items-center  before:absolute before:h-[2px] before:w-0 hover:before:w-full before:bg-white before:bottom-0 before:transition-all before:duration-300"
+                      className="flex relative  gap-4 items-center  before:absolute before:h-[2px] before:w-0 hover:before:w-full before:bg-white  before:dark:bg-black before:bottom-0 before:transition-all before:duration-300"
                       onClick={() => setNavOpen(false)}
                       href={l.to}
                     >
@@ -88,7 +88,7 @@ export default function Header() {
               return (
                 <li key={idx}>
                   <Link
-                    className="relative before:absolute before:h-[2px] before:w-0 hover:before:w-full before:bg-white before:bottom-0 before:transition-all before:duration-300"
+                    className="relative before:absolute before:h-[2px] before:w-0 hover:before:w-full before:bg-white before:dark:bg-black before:bottom-0 before:transition-all before:duration-300"
                     onClick={() => setNavOpen(false)}
                     href={l.to}
                   >

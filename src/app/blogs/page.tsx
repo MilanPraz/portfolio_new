@@ -6,20 +6,20 @@ export default function page() {
   return (
     <div className="max-w-4xl mx-auto px-4 ">
       <h2 className=" text-3xl text-center">
-        Some words that I&apos;ve wriiten beside code
+        Some words that I&apos;ve written beside code
       </h2>
 
       <div className="space-y-6 mt-20">
         {blogPosts.map((post) => (
           <article
             key={post.id}
-            className="space-y-2 hover:bg-gray-50 p-3 rounded"
+            className="space-y-2 hover:bg-gray-50 dark:hover:bg-transparent p-3 rounded"
           >
             <div className="flex items-center text-gray-600">
               <span className="inline-block text-xs">{post.date}</span>
             </div>
 
-            <h2 className="text-lg">{post.title}</h2>
+            <h2 className="text-lg  text-white">{post.title}</h2>
 
             <p className="text-gray-600 leading-relaxed text-sm">
               {post.excerpt}
@@ -28,7 +28,7 @@ export default function page() {
             <div>
               <Link
                 href={`/blogs/${post.slug}`}
-                className="text-gray-900 hover:underline inline-block text-sm"
+                className=" text-secondary-foreground hover:underline inline-block text-sm"
               >
                 Read more
               </Link>

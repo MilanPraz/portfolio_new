@@ -12,16 +12,25 @@ import Image from "next/image";
 import { Button } from "@/Components/ui/button";
 import { Eye, Github } from "lucide-react";
 import { Badge } from "@/Components/ui/badge";
+import {
+  CardBody,
+  CardContainer,
+  CardItem,
+} from "@/Components/projects/3dCard";
+
 export default function page() {
   return (
     <div className=" mx-auto max-w-4xl px-4 space-y-8 ">
       <h2 className="text-2xl text-center">My Projects</h2>
 
-      <section className=" grid md:grid-cols-2 gap-4 lg:gap-10 py-10">
+      <section
+        className=" grid md:grid-cols-2 lg:grid-cols-2
+       gap-4 lg:gap-8 py-10"
+      >
         {projects.map((item, idx) => (
           <Sheet key={idx}>
             <SheetTrigger>
-              <div className="group relative cursor-pointer rounded-md border shadow-lg">
+              {/* <div className="group relative cursor-pointer rounded-md border shadow-lg">
                 <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10"></div>
                 <Image
                   alt={item.title}
@@ -30,7 +39,33 @@ export default function page() {
                   height={800}
                   className="h-64 w-full    group-hover:object-right duration-500 ease-in-out transition-all rounded-md  object-cover object-left-top"
                 />
-              </div>
+              </div> */}
+              <CardContainer className="inter-var">
+                <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-[320px]  sm:w-auto  h-auto rounded-xl p-6 border  ">
+                  <CardItem
+                    translateZ="50"
+                    className="text-xl font-bold text-neutral-600  dark:text-white"
+                  >
+                    {item.title}
+                  </CardItem>
+                  <CardItem
+                    as="p"
+                    translateZ="60"
+                    className="text-neutral-500 text-sm max-w-sm mt-2  text-left line-clamp-1 dark:text-neutral-300"
+                  >
+                    {item.description}
+                  </CardItem>
+                  <CardItem translateZ="150" className="w-full mt-4">
+                    <Image
+                      src={item.thumbnail}
+                      height="1000"
+                      width="1000"
+                      className="h-40  sm:h-60 w-fit sm:w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                      alt="thumbnail"
+                    />
+                  </CardItem>
+                </CardBody>
+              </CardContainer>
             </SheetTrigger>
             <SheetContent className="overflow-y-auto sm:max-w-[800px] z-[9999]">
               <SheetHeader>
