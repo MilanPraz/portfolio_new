@@ -20,6 +20,18 @@ export default function Home() {
             writing clean, efficient code, enhancing user experiences, and
             fostering ongoing growth and learning.
           </p>
+          <button
+            // initial={{ opacity: 0 }}
+            // animate={{ opacity: 1 }}
+            // transition={{ duration: 0.5 }}
+            className=" bg-clip-border bg-[#ffb886]  mt-4   sm:mt-0 bg-transparent w-full sm:w-fit px-1 py-1 hover:bg-[#ffb886] rounded-full  text-white"
+          >
+            <a href={"/milan_prajapati.pdf"} download>
+              <span className=" block px-6 py-2 text-sm bg-[#121212] rounded-full hover:bg-black">
+                Download CV
+              </span>
+            </a>
+          </button>
           <SocialMediaHandles />
         </div>
       </section>
