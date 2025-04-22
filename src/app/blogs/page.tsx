@@ -13,13 +13,13 @@ export default function page() {
         {blogPosts.map((post) => (
           <article
             key={post.id}
-            className="space-y-2 hover:bg-gray-50 dark:hover:bg-transparent p-3 rounded"
+            className="space-y-2 hover:bg-gray-100 dark:hover:bg-gray-900 p-3 rounded"
           >
             <div className="flex items-center text-gray-600">
               <span className="inline-block text-xs">{post.date}</span>
             </div>
 
-            <h2 className="text-lg  text-white">{post.title}</h2>
+            <h2 className="text-lg  text-black dark:text-white">{post.title}</h2>
 
             <p className="text-gray-600 leading-relaxed text-sm">
               {post.excerpt}
