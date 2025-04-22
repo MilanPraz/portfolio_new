@@ -23,9 +23,49 @@ const parkinsans = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://milanprajapati.com.np"),
-  title: "Milan Prajapati - Fullstack Developer",
+  title: "Milan Prajapati - Fullstack Developer | TypeScript, React, Next.js Expert",
   description:
     "I'm Milan Prajapati, a Fullstack Developer proficient in TypeScript, React, Next.js, and NestJS. With a background in creating dynamic web applications and scalable solutions, I have worked on projects ranging from complex web applications to smooth animated landing pages.",
+  keywords: [
+    "Milan Prajapati",
+    "Fullstack Developer",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "NestJS",
+    "Web Development",
+    "Software Engineer",
+    "Frontend Developer",
+    "Backend Developer"
+  ],
+  authors: [{ name: "Milan Prajapati" }],
+  creator: "Milan Prajapati",
+  publisher: "Milan Prajapati",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://milanprajapati.com.np",
+    title: "Milan Prajapati - Fullstack Developer | TypeScript, React, Next.js Expert",
+    description: "I'm Milan Prajapati, a Fullstack Developer proficient in TypeScript, React, Next.js, and NestJS. With a background in creating dynamic web applications and scalable solutions, I have worked on projects ranging from complex web applications to smooth animated landing pages.",
+    siteName: "Milan Prajapati Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Milan Prajapati - Fullstack Developer | TypeScript, React, Next.js Expert",
+    description: "I'm Milan Prajapati, a Fullstack Developer proficient in TypeScript, React, Next.js, and NestJS. With a background in creating dynamic web applications and scalable solutions.",
+    creator: "@milanprajapati",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
