@@ -10,24 +10,27 @@ export default function Home() {
         {/* MY DETAILS */}
         <div className=" text-center space-y-8">
           <div className=" space-y-2">
-            <h2 className=" text-4xl">Milan Prajapati</h2>
-            <p className=" text-muted-foreground text-xl">
+            <h2 className=" text-4xl text-gray-900 dark:text-white">Milan Prajapati</h2>
+            <p className=" text-gray-700 dark:text-gray-300 text-xl">
               Full Stack Developer
             </p>
           </div>
-          <p className=" text-muted-foreground text-sm">
+          <p className=" text-gray-600 dark:text-gray-400 text-sm">
             Designing seamless solutions for intricate challenges. Committed to
             writing clean, efficient code, enhancing user experiences, and
             fostering ongoing growth and learning.
           </p>
           <button
-            // initial={{ opacity: 0 }}
-            // animate={{ opacity: 1 }}
-            // transition={{ duration: 0.5 }}
-            className=" bg-clip-border bg-[#ffb886]  mt-4   sm:mt-0 bg-transparent w-full sm:w-fit px-1 py-1 hover:bg-[#ffb886] rounded-full  text-white"
+            aria-label="Download CV"
+            className=" mt-4 sm:mt-0 w-full sm:w-fit px-4 py-4  rounded-full text-white min-h-[48px] min-w-[48px]"
           >
-            <a href={"/milan_prajapati.pdf"} download>
-              <span className=" block px-6 py-2 text-sm bg-[#121212] rounded-full hover:bg-black">
+            <a 
+              href={"/milan_prajapati.pdf"} 
+              download="Milan Prajapati CV"
+              aria-label="Download Milan Prajapati's CV"
+              className="block w-full h-full"
+            >
+              <span className="block px-8 py-3 text-sm bg-slate-900 dark:bg-slate-50 rounded-full hover:bg-black   dark:text-black text-white transition-colors duration-200">
                 Download CV
               </span>
             </a>
