@@ -9,6 +9,7 @@ export default function page() {
         Some words that I&apos;ve written beside code
       </h2>
 
+{/* All BLogs */}
       <div className="space-y-6 mt-20">
         {blogPosts.map((post) => (
           <article
