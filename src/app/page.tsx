@@ -1,5 +1,12 @@
 import EmojiEyes from "@/Components/common/EmojiEyes";
 import SocialMediaHandles from "@/Components/common/SocialMediaHandles";
+import { Metadata } from "next";
+
+// SEO IMPROVED
+export const metadata: Metadata = {
+  title: "Milan Prajapati",
+  description: "Full Stack Developer",
+};
 
 export default function Home() {
   return (
